@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color: #f8f8f8;
+border-color: #e7e7e7;">
+    <a class="navbar-brand capitalize" routerLink="/">Theme </a>
+    <button class="navbar-toggler" type="button" (click)="toggleSidebar()">
+        <!-- <span class="navbar-toggler-icon"></span> -->
+        <i class="fa fa-bars text-muted" aria-hidden="true"></i>
+    </button>
+    <div class="collapse navbar-collapse">
+        <!-- <div class="col-md-3">
+            <angular2-multiselect
+                [data]="companyList"
+                [(ngModel)]="selectedCompany"
+                [settings]="companyDropdownSettings"
+                (onSelect)="onCompanySelect($event)"
+                (onDeSelect)="OnCompanyDeSelect($event)"
+                *hasPermission="{roles: ['Super Admin', 'System Admin']}"
+            ></angular2-multiselect>
+        </div> -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown" dropdown>
+                <a href="javascript:;" class="dropdown-toggle"
+                aria-controls="dropdown-basic" dropdownToggle>
+                    <i class="fa fa-user"></i> Admin<b class="caret"></b>
+                </a>
+                <div class="dropdown-menu-right"id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                role="menu" aria-labelledby="button-basic">
+                    <a class="dropdown-item" routerLink="/lifeguard/profile/edit">
+                        <i class="fa fa-fw fa-user"></i> {{ 'Profile' }}
+                    </a>
+                    <a class="dropdown-item" href="javascript:0;" (click)="logout()">
+                        <i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' }}
+                    </a>
+                    <a class="dropdown-item" routerLink="/lifeguard/login">
+                        <i class="fa fa-sign-in"></i> {{ 'Login' }}
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
