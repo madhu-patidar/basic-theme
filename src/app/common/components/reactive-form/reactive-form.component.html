@@ -1,0 +1,48 @@
+<p>
+  reactive-form!
+</p>
+
+
+<section class="sample-app-content">
+    <form class="form-horizontal" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="body">Comment:</label>
+            <div class="col-sm-10">
+                <input type="email" formControlName="body" class="form-control" id="email" placeholder="Enter Comment">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="body">post:</label>
+            <div class="col-sm-10">
+                <ng-select  [items]="dropdownList" bindLabel="title" bindValue="id" formControlName="postId">
+                </ng-select>
+            </div>
+        </div>
+    
+        <div class="form-group"> 
+            <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>
+            </div>
+        </div>
+    </form>
+</section>
+<h5><b>Comment list</b></h5>
+<table class="table table-hover">
+    <thead>
+        <tr>
+        <th>ID</th>
+        <th>Comment</th>
+        <th>Post id</th>
+        <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let comment of comments">
+        <td>{{comment.id}}</td>
+        <td>{{comment.body }} {{comment.comment}}</td>
+        <td>{{comment.postId}}</td>
+        <td><button class="btn btn-danger" (click)="deleteRecord(comment.id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+
