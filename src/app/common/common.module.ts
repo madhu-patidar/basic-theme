@@ -15,6 +15,17 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { DataTablesModule } from 'angular-datatables';
 import { SideBarComponent } from './share-components/side-bar/side-bar.component';
 import { NavBarComponent } from './share-components/nav-bar/nav-bar.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { CalenderComponent } from './components/calender/calender.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { ImageCropperComponent } from './components/image-cropper/image-cropper.component';
+import { SelectDropdownComponent } from './components/select-dropdown/select-dropdown.component';
+import {DataTableModule} from "angular-6-datatable";
+import { DataTableComponent } from './components/data-table/data-table.component';
+
+//services
+import { CommentService } from './services/comment.service';
+import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 
 @NgModule({
   imports: [
@@ -32,9 +43,11 @@ import { NavBarComponent } from './share-components/nav-bar/nav-bar.component';
     ImageCropperModule,
     BsDropdownModule.forRoot(),
     // DataTablesModule
+    DataTableModule
   ],
-  declarations: [LayoutComponent, HomeComponent, SideBarComponent, NavBarComponent],
+  declarations: [LayoutComponent, HomeComponent, SideBarComponent, NavBarComponent, CarouselComponent, CalenderComponent, FileUploadComponent, ImageCropperComponent, SelectDropdownComponent, ReactiveFormComponent, DataTableComponent],
   providers: [
+    CommentService,
     {
         provide: NG_SELECT_DEFAULT_CONFIG,
         useValue: {

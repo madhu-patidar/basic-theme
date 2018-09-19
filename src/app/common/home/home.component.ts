@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
 import * as $ from 'jquery';
 import 'datatables.net'
+import { CommentService } from '../services/comment.service';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private toastr: ToastrService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private commentService : CommentService
   ) { }
 
   afuConfig = {
@@ -41,6 +43,17 @@ export class HomeComponent implements OnInit {
     hideResetBtn: true,
     hideSelectBtn: true
 };
+
+
+onPost(){
+  let input = {
+    "body": "some comment2",
+    "postId": 2
+  }
+  this.commentService.createComment(input).subscribe(res =>{
+    console.log(res);
+    })
+}
 
   dropdownList = [];
   selectedItems = [];
