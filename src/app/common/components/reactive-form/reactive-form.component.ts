@@ -76,7 +76,7 @@ export class ReactiveFormComponent implements OnInit {
         this.commentService.deleteComment(id).subscribe(res =>{
           Swal(
             'Deleted!',
-            'Your imaginary file has been deleted.',
+            'Your record has been deleted.',
             'success'
           )
         this.toastr.success('Your comment has been deleted.', 'Delete');
@@ -88,7 +88,7 @@ export class ReactiveFormComponent implements OnInit {
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal(
           'Cancelled',
-          'Your imaginary file is safe :)',
+          'Your record is safe :)',
           'error'
         )
       }

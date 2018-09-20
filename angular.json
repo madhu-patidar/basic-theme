@@ -32,7 +32,6 @@
 
             ],
             "scripts": [
-              "node_modules/angular-datatables/dist/angular-datatables.js"
             ]
           },
           "configurations": {

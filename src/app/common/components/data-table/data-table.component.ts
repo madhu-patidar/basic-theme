@@ -9,6 +9,8 @@ import * as $ from 'jquery';
 })
 export class DataTableComponent implements OnInit {
   comments: any;
+  data: ({ 'name': string; 'anil.singh581@gmail.com': string; 'age': string; 'city': string; 'email'?: undefined; } | { 'name': string; 'email': string; 'age': string; 'city': string; 'anil.singh581@gmail.com'?: undefined; })[];
+
 
   constructor(
     private commentService : CommentService
@@ -16,9 +18,6 @@ export class DataTableComponent implements OnInit {
 
   ngOnInit() {
     this.getComments();
-    $(document).ready(function() {
-      $('#example').DataTable();
-  } );
   }
 
   getComments(){
