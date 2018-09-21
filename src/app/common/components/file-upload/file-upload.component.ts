@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-file-upload',
@@ -8,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class FileUploadComponent implements OnInit {
 
   afuConfig:any;
+  imageUrl: any;
 
-  constructor() { 
+  constructor(
+    private sanitizer: DomSanitizer,
+  ) { 
     this.afuConfig = {
       multiple: false,
       formatsAllowed: ".jpg,.png",
@@ -29,28 +33,24 @@ export class FileUploadComponent implements OnInit {
 
   ngOnInit() {
   }
-
   DocUpload(event){}
+  
 
-
-  /**
-   * Image cropper functionality 
-   */
-
-  imageChangedEvent: any = '';
-  croppedImage: any = '';
-
-  fileChangeEvent(event: any): void {
-      this.imageChangedEvent = event;
-  }
-  imageCropped(image: string) {
-      this.croppedImage = image;
-  }
-  imageLoaded() {
-      // show cropper
-  }
-  loadImageFailed() {
-      // show message
+  fileEvent(event){
+    let input = event
+    var files = event.target.files;
+    var file = files[0];
+    if (files && file) {
+      var reader = new FileReader();
+      reader.onload =this._handleReaderLoaded.bind(this);
+      reader.readAsBinaryString(file);
+    }
   }
 
+  base64textString;
+  _handleReaderLoaded(readerEvt) {
+    var binaryString = readerEvt.target.result;
+           this.base64textString= btoa(binaryString);
+           this.imageUrl = this.sanitizer.bypassSecurityTrustResourceUrl( 'data:image/jpg;base64,' +btoa(binaryString));
+   }
 }

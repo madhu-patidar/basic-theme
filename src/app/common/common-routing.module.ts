@@ -23,7 +23,7 @@ const routes: Routes = [
           { path: 'home', component: HomeComponent },
           { path: 'carousel', component: CarouselComponent },
           { path: 'calender', component: CalenderComponent },
-          { path: 'file-upload', component: FileUploadComponent },
+          { path: 'image-upload', component: FileUploadComponent },
           { path: 'image-cropper', component: ImageCropperComponent },
           { path: 'select-dropdown', component: SelectDropdownComponent },
           { path: 'reactive-form', component: ReactiveFormComponent },

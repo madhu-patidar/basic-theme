@@ -12,4 +12,24 @@ export class ImageCropperComponent implements OnInit {
   ngOnInit() {
   }
 
+   /**
+   * Image cropper functionality 
+   */
+
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
+
+  fileChangeEvent(event: any): void {
+      this.imageChangedEvent = event;
+  }
+  imageCropped(image: string) {
+      this.croppedImage = image;
+  }
+  imageLoaded() {
+      // show cropper
+  }
+  loadImageFailed() {
+      // show message
+  }
+
 }

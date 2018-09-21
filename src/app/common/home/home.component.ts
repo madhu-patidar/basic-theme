@@ -5,8 +5,6 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 import { ToastrService } from 'ngx-toastr';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
-import * as $ from 'jquery';
-import 'datatables.net'
 import { CommentService } from '../services/comment.service';
 
 @Component({
@@ -84,47 +82,13 @@ onPost(){
   public tableWidget: any;
 
   ngOnInit () {
-    this.initDropDown(); 
-    this.initDatatable();  
-  }
-
-
-  /**
-   * data table 
-   */
-
-  private initDatatable(): void {
-    let exampleId: any = $('#example');
-    this.tableWidget = exampleId.DataTable({
-      select: true
-    });
-    this.tableWidget.on('select',
-      (e, dt, type, indexes) => this.onRowSelect(indexes))
+    this.initDropDown(); ;  
   }
   
   private onRowSelect(indexes: number[]): void {
     this.rowSelected.emit(indexes[0])
   }
 
-  // private initDatatable(): void {
-  //   let exampleId: any = $('#example');
-  //   this.tableWidget = exampleId.DataTable({
-  //     select: true
-  //   });
-  // }
-
-  private reInitDatatable(): void {
-    if (this.tableWidget) {
-      this.tableWidget.destroy()
-      this.tableWidget=null
-    }
-    setTimeout(() => this.initDatatable(),0)
-  }
-
-  public deleteRow(): void {
-    this.data.pop();
-    this.reInitDatatable()
-  }
 
   /**
    * Initilized Drop dwon 
