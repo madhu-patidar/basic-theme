@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-bar.component.scss']
 })
 export class SideBarComponent implements OnInit {
+  showMenu: string;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  addExpandClass(element: any) {
+    if (element === this.showMenu) {
+        this.showMenu = '0';
+    } else {
+        this.showMenu = element;
+    }
+}
 }

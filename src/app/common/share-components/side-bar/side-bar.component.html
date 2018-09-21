@@ -30,5 +30,25 @@ border-color: #e7e7e7;">
       <i class="fa fa-table" aria-hidden="true"></i>&nbsp;Data table
     </a>
 
+    <div class="nested-menu">
+      <a class="list-group-item" (click)="addExpandClass('pages')">
+        <span><i class="fa fa-line-chart"></i>&nbsp;Charts</span>
+      </a>
+      <li class="nested" [class.expand]="showMenu === 'pages'">
+          <ul class="submenu">
+            <li >
+              <a [routerLink]="['/high-chart']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                <i class="fa fa-bar-chart"></i>&nbsp;High chart
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/d3-chart']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                <i class="fa fa-pie-chart"></i>&nbsp;D3graphjs
+              </a>
+            </li>
+          </ul>
+        </li>
+    </div>
+
   </div>
 </nav>

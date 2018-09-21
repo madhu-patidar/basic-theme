@@ -8,8 +8,15 @@ import { HomeComponent } from './home/home.component';
 
 //Third party packages 
 import { ModalModule, BsDatepickerModule, CarouselModule, BsDropdownModule } from 'ngx-bootstrap';
+import { DoughnutChartComponent, PieChartComponent, BarChartComponent } from 'angular-d3-charts'; // this is needed!
 import { DataTableModule } from "angular-6-datatable";
-
+import { PerfectScrollbarModule,
+          PERFECT_SCROLLBAR_CONFIG,
+          PerfectScrollbarConfigInterface
+        } 
+from 'ngx-perfect-scrollbar';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { DataTablesModule } from 'angular-datatables';
 
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgSelectModule, NG_SELECT_DEFAULT_CONFIG } from '@ng-select/ng-select';
@@ -23,16 +30,22 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 import { ImageCropperComponent } from './components/image-cropper/image-cropper.component';
 import { SelectDropdownComponent } from './components/select-dropdown/select-dropdown.component';
 import { DataTableComponent } from './components/data-table/data-table.component';
-//pipes 
-
+import { D3GraphComponent } from './components/d3-graph/d3-graph.component';
+//pipes
 import { FilterPipe } from './pipes/filter.pipe'
 //services
 import { CommentService } from './services/comment.service';
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
+import { HighChartComponent } from './components/high-chart/high-chart.component';
 import { SafePipe } from './pipes/safe.pipe';
+ 
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
 
 @NgModule({
   imports: [
+    DataTablesModule,
     CommonModule,
     LayoutRoutingModule,
     FormsModule,
@@ -46,12 +59,17 @@ import { SafePipe } from './pipes/safe.pipe';
     AngularFileUploaderModule,
     ImageCropperModule,
     BsDropdownModule.forRoot(),
-    // DataTablesModule
-    DataTableModule
+    DataTableModule,
+    PerfectScrollbarModule,
+    HighchartsChartModule
   ],
-  declarations: [LayoutComponent, HomeComponent, SideBarComponent, NavBarComponent, CarouselComponent, CalenderComponent, FileUploadComponent, ImageCropperComponent, SelectDropdownComponent, ReactiveFormComponent, DataTableComponent,
-    FilterPipe,
-    SafePipe ],
+  declarations: [LayoutComponent, HomeComponent, SideBarComponent, NavBarComponent, CarouselComponent, CalenderComponent, FileUploadComponent, ImageCropperComponent, SelectDropdownComponent, ReactiveFormComponent, DataTableComponent,HighChartComponent,
+    FilterPipe, D3GraphComponent,
+    SafePipe ,
+    DoughnutChartComponent, 
+    PieChartComponent, 
+    BarChartComponent,
+  ],
   providers: [
     FilterPipe,
     CommentService,
@@ -60,6 +78,10 @@ import { SafePipe } from './pipes/safe.pipe';
         useValue: {
             notFoundText: 'Custom not found'
         }
+    },
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     }
 ]
 })

@@ -11,8 +11,8 @@ import { ImageCropperComponent } from './components/image-cropper/image-cropper.
 import { SelectDropdownComponent } from './components/select-dropdown/select-dropdown.component';
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { DataTableComponent } from './components/data-table/data-table.component';
-
-
+import { HighChartComponent } from './components/high-chart/high-chart.component';
+import { D3GraphComponent } from './components/d3-graph/d3-graph.component';
 const routes: Routes = [
 
       {
@@ -28,6 +28,8 @@ const routes: Routes = [
           { path: 'select-dropdown', component: SelectDropdownComponent },
           { path: 'reactive-form', component: ReactiveFormComponent },
           { path: 'datatable', component: DataTableComponent },
+          { path: 'high-chart', component: HighChartComponent },
+          { path: 'd3-chart', component: D3GraphComponent },
       ]
     }
   ];

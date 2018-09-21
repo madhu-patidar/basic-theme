@@ -46,6 +46,11 @@
       "body": "qwaswdasd",
       "postId": 1,
       "id": 15
+    },
+    {
+      "body": "some comment2",
+      "postId": 2,
+      "id": 16
     }
   ],
   "profile": {
