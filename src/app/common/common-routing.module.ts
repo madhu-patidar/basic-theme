@@ -13,6 +13,10 @@ import { ReactiveFormComponent } from './components/reactive-form/reactive-form.
 import { DataTableComponent } from './components/data-table/data-table.component';
 import { HighChartComponent } from './components/high-chart/high-chart.component';
 import { D3GraphComponent } from './components/d3-graph/d3-graph.component';
+import { EmployeeComponent } from './components/employees/employee/employee.component';
+import { EmployeeListComponent } from './components/employees/employee-list/employee-list.component';
+import { EmployeesComponent } from './components/employees/employees.component';
+
 const routes: Routes = [
 
       {
@@ -30,6 +34,9 @@ const routes: Routes = [
           { path: 'datatable', component: DataTableComponent },
           { path: 'high-chart', component: HighChartComponent },
           { path: 'd3-chart', component: D3GraphComponent },
+          { path: 'employee', component: EmployeeComponent },
+          { path: 'employees', component: EmployeesComponent },
+          { path: 'employee-list', component: EmployeeListComponent },
       ]
     }
   ];

@@ -9,6 +9,8 @@ bindValue="item_id"
 [(ngModel)]="selectedPersonId">
 </ng-select>
 
+{{selectedPersonId | json}}
+
 <br><br>
 <label for="single-select">Multi select dropdown</label>
   <ng-multiselect-dropdown style="width:20%"
@@ -20,3 +22,5 @@ bindValue="item_id"
   (onSelectAll)="onSelectAll($event)"
 >
 </ng-multiselect-dropdown>
+
+{{selectedItems | json}}

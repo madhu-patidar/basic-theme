@@ -1,54 +1,74 @@
-<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}" style="background-color: #f8f8f8;width: 17%;
-border-color: #e7e7e7;">
-  <div class="list-group">
-    <a routerLink="home" [routerLinkActive]="['router-link-active']" class="list-group-item">
-      <i class="fa fa-fw fa-dashboard"></i>&nbsp;Dashboard
-    </a>
-    <a  [routerLink]="['/calender']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-      <i class="fa fa-calendar"></i>&nbsp;Calender
-    </a>
-    <a  [routerLink]="['/select-dropdown']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-      <i class="fa fa-caret-down"></i>&nbsp;Select Dropdown
-    </a>
-
-    <a  [routerLink]="['/carousel']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-      <i class="fa fa-fw fa-dashboard"></i>&nbsp;Carousel
-    </a>
-
-    <a  [routerLink]="['/image-upload']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-      <i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Image upload
-    </a> 
-
-    <a  [routerLink]="['/image-cropper']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-      <i class="fa fa-object-ungroup" aria-hidden="true"></i> &nbsp;Image cropper
-    </a> 
-
-    <a  [routerLink]="['/reactive-form']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-      <i class="fa fa-wpforms" aria-hidden="true"></i>&nbsp;Reactive Form
-    </a> 
-     <a [routerLink]="['/datatable']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-      <i class="fa fa-table" aria-hidden="true"></i>&nbsp;Data table
-    </a>
-
-    <div class="nested-menu">
-      <a class="list-group-item" (click)="addExpandClass('pages')">
-        <span><i class="fa fa-line-chart"></i>&nbsp;Charts</span>
+<perfect-scrollbar style="max-width: 600px; max-height: 400px;" [config]="config">
+  <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}" style="background-color: #f8f8f8;width: 17%;
+  border-color: #e7e7e7;margin-top:20px">
+    <div class="list-group">
+      <a routerLink="home" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <i class="fa fa-fw fa-dashboard"></i>&nbsp;Dashboard
       </a>
-      <li class="nested" [class.expand]="showMenu === 'pages'">
-          <ul class="submenu">
-            <li >
-              <a [routerLink]="['/high-chart']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-                <i class="fa fa-bar-chart"></i>&nbsp;High chart
-              </a>
-            </li>
-            <li>
-              <a [routerLink]="['/d3-chart']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-                <i class="fa fa-pie-chart"></i>&nbsp;D3graphjs
-              </a>
-            </li>
-          </ul>
-        </li>
-    </div>
+      <a  [routerLink]="['/calender']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <i class="fa fa-calendar"></i>&nbsp;Calender
+      </a>
+      <a  [routerLink]="['/select-dropdown']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <i class="fa fa-caret-down"></i>&nbsp;Select Dropdown
+      </a>
 
-  </div>
-</nav>
+      <a  [routerLink]="['/carousel']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <i class="fa fa-fw fa-dashboard"></i>&nbsp;Carousel
+      </a>
+
+      <a  [routerLink]="['/image-upload']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Image upload
+      </a> 
+
+      <a  [routerLink]="['/image-cropper']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <i class="fa fa-object-ungroup" aria-hidden="true"></i>&nbsp;Image cropper
+      </a> 
+
+      <a  [routerLink]="['/reactive-form']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <i class="fa fa-wpforms" aria-hidden="true"></i>&nbsp;Reactive Form
+      </a> 
+      <a [routerLink]="['/datatable']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <i class="fa fa-table" aria-hidden="true"></i>&nbsp;Data table
+      </a>
+
+      <div class="nested-menu">
+        <a class="list-group-item" (click)="addExpandClass('pages')">
+          <span><i class="fa fa-line-chart"></i>&nbsp;Charts</span>
+        </a>
+        <li class="nested" [class.expand]="showMenu === 'pages'">
+            <ul class="submenu">
+              <li >
+                <a [routerLink]="['/high-chart']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                  <i class="fa fa-bar-chart"></i>&nbsp;High Charts
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['/d3-chart']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                  <i class="fa fa-line-chart"></i>&nbsp;D3 Graphs
+                </a>
+              </li>
+            </ul>
+          </li>
+      </div>
+      <div class="nested-menu">
+        <a class="list-group-item" (click)="toggle = !toggle">
+          <span><i class="fa fa-users"></i>&nbsp;Employees</span>
+        </a>
+        <li class="nested" [class.expand]="toggle">
+            <ul class="submenu">
+              <li >
+                <a [routerLink]="['/employee-list']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                  <i class="fa fa-users"></i>&nbsp;Employee List
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['/employee']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                  <i class="fa fa-user"></i>&nbsp;Employee
+                </a>
+              </li>
+            </ul>
+          </li>
+      </div>
+    </div>
+  </nav>
+</perfect-scrollbar>

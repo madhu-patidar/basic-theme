@@ -17,6 +17,10 @@ import { PerfectScrollbarModule,
 from 'ngx-perfect-scrollbar';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { DataTablesModule } from 'angular-datatables';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from '../../environments/environment';
+
 
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgSelectModule, NG_SELECT_DEFAULT_CONFIG } from '@ng-select/ng-select';
@@ -35,9 +39,14 @@ import { D3GraphComponent } from './components/d3-graph/d3-graph.component';
 import { FilterPipe } from './pipes/filter.pipe'
 //services
 import { CommentService } from './services/comment.service';
+import { EmployeeService } from './components/employees/employee.service';
+
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { HighChartComponent } from './components/high-chart/high-chart.component';
 import { SafePipe } from './pipes/safe.pipe';
+import { EmployeeComponent } from './components/employees/employee/employee.component';
+import { EmployeeListComponent } from './components/employees/employee-list/employee-list.component';
+import { EmployeesComponent } from './components/employees/employees.component';
  
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -61,14 +70,16 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BsDropdownModule.forRoot(),
     DataTableModule,
     PerfectScrollbarModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    // AngularFireModule.initializeApp(environment.firebase),
+    // AngularFireDatabaseModule
   ],
   declarations: [LayoutComponent, HomeComponent, SideBarComponent, NavBarComponent, CarouselComponent, CalenderComponent, FileUploadComponent, ImageCropperComponent, SelectDropdownComponent, ReactiveFormComponent, DataTableComponent,HighChartComponent,
     FilterPipe, D3GraphComponent,
     SafePipe ,
     DoughnutChartComponent, 
     PieChartComponent, 
-    BarChartComponent,
+    BarChartComponent, EmployeeComponent, EmployeeListComponent, EmployeesComponent,
   ],
   providers: [
     FilterPipe,
@@ -82,7 +93,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    }
+    },
+    EmployeeService
 ]
 })
 export class CommonAppModule { }
