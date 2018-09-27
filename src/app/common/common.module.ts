@@ -15,11 +15,14 @@ import { PerfectScrollbarModule,
           PerfectScrollbarConfigInterface
         } 
 from 'ngx-perfect-scrollbar';
-import { HighchartsChartModule } from 'highcharts-angular';
 import { DataTablesModule } from 'angular-datatables';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../../environments/environment';
+import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
+import * as more from 'highcharts/highcharts-more.src';
+import * as exporting from 'highcharts/modules/exporting.src';
+import * as highstock from 'highcharts/modules/stock.src';
 
 
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
@@ -70,9 +73,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BsDropdownModule.forRoot(),
     DataTableModule,
     PerfectScrollbarModule,
-    HighchartsChartModule,
-    // AngularFireModule.initializeApp(environment.firebase),
-    // AngularFireDatabaseModule
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    ChartModule
   ],
   declarations: [LayoutComponent, HomeComponent, SideBarComponent, NavBarComponent, CarouselComponent, CalenderComponent, FileUploadComponent, ImageCropperComponent, SelectDropdownComponent, ReactiveFormComponent, DataTableComponent,HighChartComponent,
     FilterPipe, D3GraphComponent,
@@ -94,6 +97,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     },
+    { provide: HIGHCHARTS_MODULES, useFactory: () => [ more, exporting, highstock ] },
     EmployeeService
 ]
 })

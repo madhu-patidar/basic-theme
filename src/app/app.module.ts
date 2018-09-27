@@ -6,9 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -24,8 +21,6 @@ import { environment } from '../environments/environment';
     ToastrModule.forRoot(
       {maxOpened : 4}
     ),
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

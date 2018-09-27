@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-side-bar',
@@ -7,17 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideBarComponent implements OnInit {
   showMenu: string;
+  route: string;
+    toggle: boolean;
+    chartToggle: boolean;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private location: Location) {
   }
 
-  addExpandClass(element: any) {
-    if (element === this.showMenu) {
-        this.showMenu = '0';
-    } else {
-        this.showMenu = element;
+  ngOnInit() {
+    if(_.intersection(['/employee-list', '/employee'],[ this.location.path()]).length > 0){
+        this.toggle = true;
+    }else if(_.intersection(['/high-chart', '/d3-chart'],[ this.location.path()]).length > 0){
+        this.chartToggle = true;
     }
-}
+  }
 }

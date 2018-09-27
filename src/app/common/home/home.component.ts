@@ -7,9 +7,9 @@ import { ToastrService } from 'ngx-toastr';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
 import { CommentService } from '../services/comment.service';
 
-import * as Highcharts from 'highcharts';
-import * as HC_map from 'highcharts/modules/map';
-HC_map(Highcharts);
+// import * as Highcharts from 'highcharts';
+// import * as HC_map from 'highcharts/modules/map';
+// HC_map(Highcharts);
 
 import { Subject } from 'rxjs';
 
@@ -22,16 +22,16 @@ import { Subject } from 'rxjs';
   ]
 })
 export class HomeComponent implements OnInit {
-  Highcharts = Highcharts; // required
-  chartConstructor = 'chart'; // optional string, defaults to 'chart'
-  chartOptions = {
-      series: [{
-        data: [1, 2, 3]
-      }]
-    }; // required
-  chartCallback = function (chart) {  } // optional function, defaults to null
-  updateFlag = false; // optional boolean
-  oneToOneFlag = true; // optional boolean, defaults to false
+  // Highcharts = Highcharts; // required
+  // chartConstructor = 'chart'; // optional string, defaults to 'chart'
+  // chartOptions = {
+  //     series: [{
+  //       data: [1, 2, 3]
+  //     }]
+  //   }; // required
+  // chartCallback = function (chart) {  } // optional function, defaults to null
+  // updateFlag = false; // optional boolean
+  // oneToOneFlag = true; // optional boolean, defaults to false
 
   modalRef: BsModalRef;
   @Output() rowSelected: EventEmitter<number> = new EventEmitter();
