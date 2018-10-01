@@ -1,5 +1,5 @@
-<perfect-scrollbar style="max-width: 600px; max-height: 400px;" [config]="config">
-  <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}" style="background-color: #f8f8f8;width: 17%;
+<perfect-scrollbar style="max-width: 600px; max-height: 400px;">
+  <nav class="sidebar" style="background-color: #f8f8f8;width: 17%;
   border-color: #e7e7e7;margin-top:20px">
     <div class="list-group">
       <a routerLink="home" [routerLinkActive]="['router-link-active']" class="list-group-item">
@@ -9,7 +9,8 @@
         <i class="fa fa-calendar"></i>&nbsp;Calender
       </a>
       <a  [routerLink]="['/select-dropdown']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-        <i class="fa fa-caret-down"></i>&nbsp;Select Dropdown
+        <i class="fa fa-caret-down" aria-hidden="true"></i>
+&nbsp;Select Dropdown
       </a>
 
       <a  [routerLink]="['/carousel']" [routerLinkActive]="['router-link-active']" class="list-group-item">
@@ -33,7 +34,12 @@
 
       <div class="nested-menu">
         <a class="list-group-item" (click)="chartToggle = !chartToggle">
-          <span><i class="fa fa-line-chart"></i>&nbsp;Charts</span>
+          <span>
+            <i class="fa fa-plus-circle" *ngIf="!chartToggle"></i>
+            <i class="fa fa-minus-circle" *ngIf="chartToggle"></i>
+            <!-- <i class="fas fa-plus-circle"></i>
+            <i class="fas fa-minus-circle"></i> -->
+            &nbsp;Charts</span>
         </a>
         <li class="nested" [class.expand]="chartToggle">
             <ul class="submenu">
@@ -52,7 +58,10 @@
       </div>
       <div class="nested-menu">
         <a class="list-group-item" (click)="toggle = !toggle">
-          <span><i class="fa fa-users"></i>&nbsp;Employees</span>
+          <span>
+            <i class="fa fa-plus-circle" *ngIf="!toggle"></i>
+            <i class="fa fa-minus-circle" *ngIf="toggle"></i>
+          &nbsp;Employees</span>
         </a>
         <li class="nested" [class.expand]="toggle">
             <ul class="submenu">

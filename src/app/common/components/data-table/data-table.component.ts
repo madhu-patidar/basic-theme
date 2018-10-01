@@ -8,6 +8,7 @@ import { CommentService } from '../../services/comment.service';
 })
 export class DataTableComponent implements OnInit {
   comments: any;
+  searchText
   data: ({ 'name': string; 'anil.singh581@gmail.com': string; 'age': string; 'city': string; 'email'?: undefined; } | { 'name': string; 'email': string; 'age': string; 'city': string; 'anil.singh581@gmail.com'?: undefined; })[];
 
 

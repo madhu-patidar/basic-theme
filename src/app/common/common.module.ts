@@ -23,7 +23,8 @@ import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
 import * as more from 'highcharts/highcharts-more.src';
 import * as exporting from 'highcharts/modules/exporting.src';
 import * as highstock from 'highcharts/modules/stock.src';
-
+// import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+// import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider} from "angularx-social-login"; 
 
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgSelectModule, NG_SELECT_DEFAULT_CONFIG } from '@ng-select/ng-select';
@@ -50,7 +51,11 @@ import { SafePipe } from './pipes/safe.pipe';
 import { EmployeeComponent } from './components/employees/employee/employee.component';
 import { EmployeeListComponent } from './components/employees/employee-list/employee-list.component';
 import { EmployeesComponent } from './components/employees/employees.component';
+import { SocialLoginComponent } from './components/social-login/social-login.component';
+import { AuthService } from './services/auth.service';
+import { AngularFireAuth } from 'angularfire2/auth';
  
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
@@ -75,14 +80,16 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PerfectScrollbarModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    ChartModule
+    ChartModule,
+    // DoughnutChartComponent
   ],
-  declarations: [LayoutComponent, HomeComponent, SideBarComponent, NavBarComponent, CarouselComponent, CalenderComponent, FileUploadComponent, ImageCropperComponent, SelectDropdownComponent, ReactiveFormComponent, DataTableComponent,HighChartComponent,
-    FilterPipe, D3GraphComponent,
-    SafePipe ,
+  declarations: [LayoutComponent, HomeComponent, SideBarComponent, NavBarComponent, 
+  CarouselComponent, CalenderComponent, FileUploadComponent, ImageCropperComponent, SelectDropdownComponent, ReactiveFormComponent, DataTableComponent,HighChartComponent,
+  D3GraphComponent,
     DoughnutChartComponent, 
     PieChartComponent, 
-    BarChartComponent, EmployeeComponent, EmployeeListComponent, EmployeesComponent,
+    BarChartComponent,
+     EmployeeComponent, EmployeeListComponent, EmployeesComponent, SocialLoginComponent, SafePipe, FilterPipe
   ],
   providers: [
     FilterPipe,
@@ -98,7 +105,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     },
     { provide: HIGHCHARTS_MODULES, useFactory: () => [ more, exporting, highstock ] },
-    EmployeeService
+    EmployeeService,
+    AuthService,
+    AngularFireAuth
+    
 ]
 })
 export class CommonAppModule { }

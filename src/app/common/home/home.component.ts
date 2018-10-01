@@ -11,7 +11,7 @@ import { CommentService } from '../services/comment.service';
 // import * as HC_map from 'highcharts/modules/map';
 // HC_map(Highcharts);
 
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -33,10 +33,14 @@ export class HomeComponent implements OnInit {
   // updateFlag = false; // optional boolean
   // oneToOneFlag = true; // optional boolean, defaults to false
 
+  DocUpload(event){
+
+  }
+
   modalRef: BsModalRef;
   @Output() rowSelected: EventEmitter<number> = new EventEmitter();
   dtOptions: DataTables.Settings = {};
-
+  selectedPersonId :any
 
   constructor(
     private toastr: ToastrService,
@@ -107,7 +111,27 @@ onPost(){
   public tableWidget: any;
 
   ngOnInit () {
-    this.initDropDown(); ;  
+    this.initDropDown(); 
+
+  //   // Observable exmple
+  //   const secondsObservable = new Observable((observer) => {       
+  //     let i = 0;
+  //     setInterval(() => {
+  //         observer.next(i++);
+  //     }, 1000);
+  // });
+  
+  // secondsObservable.subscribe(value => console.log(value)); 
+
+
+   //Promise exmple
+//   const numberPromise = new Promise((resolve) => {
+//     resolve(5);
+//     resolve(10);
+// });
+
+// numberPromise.then(value => console.log(value));
+
   }
   
   private onRowSelect(indexes: number[]): void {

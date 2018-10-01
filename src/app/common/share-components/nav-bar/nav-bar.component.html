@@ -1,25 +1,30 @@
 <nav class="navbar navbar-expand-lg fixed-top" >
     <a class="navbar-brand capitalize white-text" routerLink="/">Theme </a>
-    <button class="navbar-toggler" type="button" (click)="toggleSidebar()">
+    <button class="navbar-toggler" type="button">
         <!-- <span class="navbar-toggler-icon"></span> -->
         <i class="fa fa-bars text-muted" aria-hidden="true"></i>
     </button>
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
+            <li> <a  routerLink="/social-login" style="text-decoration: none;" class=" white-text"
+               >
+                <i class="fa fa-sign-in" aria-hidden="true"></i> Social login&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+            </li>
             <li class="nav-item dropdown" dropdown>
-                <a href="javascript:;"  class=" white-text dropdown-toggle"
+                <a href="javascript:;" style="text-decoration: none;" class=" white-text dropdown-toggle"
                 aria-controls="dropdown-basic" dropdownToggle>
                     <i class="fa fa-user"></i> Admin<b class="caret"></b>
                 </a>
                 <div class="dropdown-menu-right"id="dropdown-basic" *dropdownMenu class="dropdown-menu" style="margin-left:-72px"
                 role="menu" aria-labelledby="button-basic">
-                    <a class="dropdown-item" routerLink="/lifeguard/profile/edit">
+                    <!-- <a class="dropdown-item" routerLink="/lifeguard/profile/edit">
                         <i class="fa fa-fw fa-user"></i> {{ 'Profile' }}
-                    </a>
-                    <a class="dropdown-item" href="javascript:0;" (click)="logout()">
+                    </a> -->
+                    <a class="dropdown-item" href="javascript:0;" (click)="signOut()">
                         <i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' }}
                     </a>
-                    <a class="dropdown-item" routerLink="/lifeguard/login">
+                    <a class="dropdown-item" routerLink="/social-login">
                         <i class="fa fa-sign-in"></i> {{ 'Login' }}
                     </a>
                 </div>

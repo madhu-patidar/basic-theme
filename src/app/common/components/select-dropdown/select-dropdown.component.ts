@@ -10,7 +10,7 @@ export class SelectDropdownComponent implements OnInit {
   dropdownList = [];
   selectedItems = [];
   dropdownSettings = {};
-
+  selectedPersonId
   constructor() { }
 
   ngOnInit() {

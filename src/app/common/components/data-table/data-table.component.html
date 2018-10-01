@@ -19,7 +19,7 @@
         </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let comment of mf.data| filter : searchText">
+            <tr *ngFor="let comment of mf.data | filter : searchText">
                 <td style="width: 30%">{{comment.id}}</td>
                 <td style="width: 30%">{{comment.body }} {{comment.comment}}</td>
                 <td style="width: 30%">{{comment.postId}}</td>

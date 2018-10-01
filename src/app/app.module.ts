@@ -6,12 +6,40 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { 
+	NgSocialModule, 
+	AuthServiceConfig, 
+	GoogleLoginProvider, 
+	FacebookLoginProvider 
+} from 'ng-social';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+
+ 
+export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+      [
+        {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider("1758555154405794")
+        },
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider("1094108146813-k2qrep2n74928fpv9qapd5jbff69enlm.apps.googleusercontent.com")
+        },
+      ]
+  );
+  return config;
+}
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    NgSocialModule,
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule, // required animations module,
@@ -21,8 +49,14 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ToastrModule.forRoot(
       {maxOpened : 4}
     ),
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
