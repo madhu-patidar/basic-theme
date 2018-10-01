@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/pwa": "^0.8.3",
     "@angular/router": "^6.0.3",
+    "@angular/service-worker": "^6.0.3",
     "@ng-select/ng-select": "^2.9.0",
     "angular-6-datatable": "^0.8.0",
     "angular-d3-charts": "^5.0.0",
@@ -40,14 +41,14 @@
     "ng-multiselect-dropdown": "^0.2.1",
     "ng-social": "^1.0.0",
     "ngx-bootstrap": "^3.0.1",
+    "ngx-dropzone-wrapper": "^6.2.0",
     "ngx-image-cropper": "^1.0.2",
     "ngx-perfect-scrollbar": "^6.3.1",
     "ngx-toastr": "^9.0.2",
     "rxjs": "^6.3.2",
     "rxjs-compat": "^6.3.2",
     "sweetalert2": "^7.26.29",
-    "zone.js": "^0.8.26",
-    "@angular/service-worker": "^6.0.3"
+    "zone.js": "^0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.8",

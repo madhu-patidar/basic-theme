@@ -1,0 +1,12 @@
+dropzone .dropzone.dz-wrapper {
+    position: relative;
+    overflow: auto;
+    width: 160%;
+    min-height: 0;
+    max-height: 100%;
+    padding: 0;
+    border: none;
+    color: #666;
+    background: transparent;
+    height: 250px;
+}
