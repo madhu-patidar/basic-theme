@@ -4,7 +4,11 @@ import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 const routes: Routes = [
   {
     path: "",
-    loadChildren: '/home/webwerks/basic-theme/src/app/common/common.module#CommonAppModule'
+    loadChildren: 'src/app/common/common.module#CommonAppModule'
+  },
+  {
+    path: "auth",
+    loadChildren: 'src/app/auth/auth.module#AuthModule'
   },
 ];
 
@@ -14,7 +18,9 @@ const config: ExtraOptions = {
 
 @NgModule({
   exports: [ RouterModule ],
-  imports: [ RouterModule.forRoot(routes, config) ]
+  imports: [ 
+    RouterModule.forRoot(routes, config)
+   ]
 
 })
 

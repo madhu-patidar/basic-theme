@@ -14,6 +14,8 @@ import {
 } from 'ng-social';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
  
 export function getAuthServiceConfigs() {
@@ -49,6 +51,8 @@ export function getAuthServiceConfigs() {
     ToastrModule.forRoot(
       {maxOpened : 4}
     ),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [

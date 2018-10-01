@@ -50,8 +50,7 @@ import { SafePipe } from './pipes/safe.pipe';
 import { EmployeeComponent } from './components/employees/employee/employee.component';
 import { EmployeeListComponent } from './components/employees/employee-list/employee-list.component';
 import { EmployeesComponent } from './components/employees/employees.component';
-import { SocialLoginComponent } from './components/social-login/social-login.component';
-import { AuthService } from './services/auth.service';
+import { AuthService } from '../auth/services/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
  
 
@@ -84,8 +83,6 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     BsDropdownModule.forRoot(),
     DataTableModule,
     PerfectScrollbarModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
     ChartModule,
     DropzoneModule
     // DoughnutChartComponent
@@ -96,7 +93,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     DoughnutChartComponent, 
     PieChartComponent, 
     BarChartComponent,
-     EmployeeComponent, EmployeeListComponent, EmployeesComponent, SocialLoginComponent, SafePipe, FilterPipe
+     EmployeeComponent, EmployeeListComponent, EmployeesComponent, SafePipe, FilterPipe
   ],
   providers: [
     FilterPipe,

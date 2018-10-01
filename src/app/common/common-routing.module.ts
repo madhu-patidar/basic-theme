@@ -16,7 +16,7 @@ import { D3GraphComponent } from './components/d3-graph/d3-graph.component';
 import { EmployeeComponent } from './components/employees/employee/employee.component';
 import { EmployeeListComponent } from './components/employees/employee-list/employee-list.component';
 import { EmployeesComponent } from './components/employees/employees.component';
-import { SocialLoginComponent } from './components/social-login/social-login.component';
+
 
 const routes: Routes = [
 
@@ -38,7 +38,6 @@ const routes: Routes = [
           { path: 'employee', component: EmployeeComponent },
           { path: 'employees', component: EmployeesComponent },
           { path: 'employee-list', component: EmployeeListComponent },
-          { path: 'social-login', component: SocialLoginComponent },
       ]
     }
   ];
